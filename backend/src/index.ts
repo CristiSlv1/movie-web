@@ -167,7 +167,7 @@ const startServer = async () => {
         await AppDataSource.initialize();
         console.log('Database connected');
         await simulateAttack();
-        //startMovieGeneration();
+        startMovieGeneration();
         startMonitoring();
     } catch (error) {
         console.error('Server startup error:', error);
