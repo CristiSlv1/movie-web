@@ -16,6 +16,8 @@ import { AppDataSource } from './data-source';
 import { LoggingService } from './services/LoggingService';
 import { Log } from './entities/Log';
 import { User } from './entities/User';
+import { Movie } from './entities/Movie';
+import { populateDatabase } from './scripts/populate-db';
 
 export const monitoredUsers = new Set<number>();
 
@@ -166,6 +168,11 @@ const startServer = async () => {
     try {
         await AppDataSource.initialize();
         console.log('Database connected');
+        const movieCount = await AppDataSource.getRepository(Movie).count();
+        if (movieCount === 0) {
+            console.log('No movies found in DB, populating with fake data...');
+            await populateDatabase();
+        }
         await simulateAttack();
         startMonitoring();
     } catch (error) {

@@ -7,7 +7,7 @@ import { Review } from '../entities/Review';
 import { faker } from '@faker-js/faker';
 import { User } from '../entities/User';
 
-async function populateDatabase() {
+export async function populateDatabase() {
     await AppDataSource.initialize();
     
     // Get repositories
