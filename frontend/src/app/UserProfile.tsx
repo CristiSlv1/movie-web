@@ -30,7 +30,7 @@ export default function UserProfile() {
     return (
         <div className="profile-section">
             <img
-                src="../../public/default-avatar.png"
+                src="/default-avatar.png"
                 alt="Profile"
                 className="profile-section img"
             />

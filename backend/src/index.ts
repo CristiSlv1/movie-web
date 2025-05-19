@@ -55,11 +55,13 @@ app.post('/api/upload', (req, res) => {
     });
 });
 
-// Get uploaded files endpoint
 app.get('/api/files', (req, res) => {
     const uploadsDir = path.join(__dirname, '../Uploads');
     fs.readdir(uploadsDir, (err, files) => {
         if (err) {
+            if (err.code === 'ENOENT') {
+                return res.status(200).json([]);
+            }
             console.error('Error reading uploads directory:', err);
             return res.status(500).json({ error: 'Failed to read uploads directory' });
         }
