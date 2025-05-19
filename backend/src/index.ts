@@ -164,7 +164,6 @@ const startServer = async () => {
     try {
         await AppDataSource.initialize();
         console.log('Database connected');
-        await db.initializeFakeData();
         await simulateAttack();
         //startMovieGeneration();
         startMonitoring();
