@@ -18,9 +18,7 @@ export class ActivityMonitor {
                 .getRawMany();
 
             for (const user of suspiciousUsers) {
-                await AppDataSource.getRepository(User).update(user.userId, {
-                    isMonitored: true
-                });
+                console.log(`User ${user.userId} is suspicious with ${user.actionCount} actions in the last hour.`);
             }
         }, 3600000); // Check every hour
     }

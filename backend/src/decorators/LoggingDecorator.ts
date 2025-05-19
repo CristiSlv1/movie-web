@@ -17,10 +17,11 @@ export function LogAction(action: string, entityType: string) {
             if (req?.user?.id) {
                 const logRepo = AppDataSource.getRepository(Log);
                 await logRepo.save({
-                    user: { id: req.user.id },
-                    action,
-                    entityType,
-                    entityId: result?.id || args[0]?.id || null
+                    userId: req.user.id,
+                    action: action as 'CREATE' | 'READ' | 'UPDATE' | 'DELETE',
+                    entity_type: entityType,
+                    entity_id: result?.id || args[0]?.id || null,
+                    timestamp: new Date(),
                 });
             }
             
