@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import { AppDataSource } from '../data-source';
 import { Genre } from '../entities/Genre';
 import { Movie } from '../entities/Movie';
@@ -17,7 +19,7 @@ async function populateDatabase() {
     // Create 1,000 dummy users
     console.log('Creating dummy users...');
     const users = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 10; i++) {
         const user = userRepo.create({
             email: `user${i + 1}@example.com`,
             password: '$2b$10$XlWYb6L.5z7V7V7V7V7V7eXlWYb6L.5z7V7V7V7V7V7eXlWYb6L.5z7V7V7V7V7V7e',
@@ -44,7 +46,7 @@ async function populateDatabase() {
     console.log('Generating movies...');
     console.time('Generate movies');
     const movies: Partial<Movie>[] = [];
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 1000; i++) {
         const createdAt = faker.date.past({ years: 2 });
         movies.push({
             title: faker.lorem.words(3),
@@ -55,7 +57,7 @@ async function populateDatabase() {
             genre: savedGenres[Math.floor(Math.random() * savedGenres.length)],
             // Removed user association, user_id will be null
         });
-        if ((i + 1) % 5000 === 0) console.log(`Generated ${i + 1} movies...`);
+        if ((i + 1) % 500 === 0) console.log(`Generated ${i + 1} movies...`);
     }
     console.timeEnd('Generate movies');
 
@@ -70,7 +72,7 @@ async function populateDatabase() {
     console.time('Generate reviews');
     const savedMovies = await movieRepo.find();
     const reviews: Partial<Review>[] = [];
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 1000; i++) {
         const createdAt = faker.date.between({
             from: savedMovies[0].created_at || new Date('2023-01-01'),
             to: new Date()
@@ -84,7 +86,7 @@ async function populateDatabase() {
             movieId: movie.id,
             user: users[Math.floor(Math.random() * users.length)],
         });
-        if ((i + 1) % 5000 === 0) console.log(`Generated ${i + 1} reviews...`);
+        if ((i + 1) % 500 === 0) console.log(`Generated ${i + 1} reviews...`);
     }
     console.timeEnd('Generate reviews');
 
