@@ -684,6 +684,9 @@ export default function Home() {
             </div>
             <div className="movieGridContainer">
                 <div className="movieGrid">
+                    {currentMovies.length === 0 && !isLoading && process.env.NODE_ENV === 'development' && (
+                        <div style={{ color: 'red', fontWeight: 'bold', margin: '2rem' }}>No movies found.</div>
+                    )}
                     {currentMovies.map((movie) => {
                         const validatedMovie = validateMovie(movie);
                         let backgroundColor = "";

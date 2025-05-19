@@ -18,12 +18,12 @@ router.get('/health', (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-        if (!token) {
-            return res.status(401).json({ error: 'No token provided' });
-        }
+        // Remove token check for GET
+        // const token = req.headers.authorization?.split(' ')[1];
+        // if (!token) {
+        //     return res.status(401).json({ error: 'No token provided' });
+        // }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as { id: number; role: string };
         const { page = '1', limit = '20', genre, sort } = req.query;
         const pageNum = parseInt(page as string);
         const limitNum = parseInt(limit as string);
@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
             movies = movies.slice(skip, skip + limitNum);
         }
 
-        await LoggingService.logAction(decoded.id, 'READ', 'movie', undefined);
+        await LoggingService.logAction(0, 'READ', 'movie', undefined);
         res.json({
             data: movies,
             total,
