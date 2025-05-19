@@ -1,0 +1,229 @@
+.movieContainer {
+    padding: 2rem;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    max-width: 900px;
+    margin: auto;
+    background: #1a1a1a;
+    color: #e5e5e5;
+}
+
+.topNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: #00ff41;
+    border-bottom: 1px solid #333;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00ff41;
+    transition: color 0.3s;
+}
+
+.backButton:hover {
+    color: #ff3333;
+}
+
+.navIcons button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    color: #00ff41;
+    transition: color 0.3s;
+}
+
+.navIcons button:hover {
+    color: #ff3333;
+}
+
+.movieBanner {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+    background-color: #222; /* Fallback background if image fails */
+    background-image: url('/default-movie.jpg'); /* Fallback image */
+}
+
+.bannerOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: #e5e5e5;
+}
+
+.movieTitle {
+    font-size: 3rem;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+.movieDescription {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-family: 'Arial', sans-serif;
+    color: #b0b0b0;
+}
+
+.movieActions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.watchlistButton {
+    background-color: #00ff41;
+    color: #000;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Impact', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.watchlistButton:hover {
+    background-color: #ff3333;
+    color: #fff;
+}
+
+.friendsCount {
+    font-size: 1rem;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+}
+
+.tabsContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 1rem;
+    gap: 1.5rem;
+}
+
+.tabButton {
+    padding: 0.7rem 1.5rem;
+    border: 2px solid #333;
+    background: #222;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #e5e5e5;
+    font-family: 'Impact', sans-serif;
+    transition: all 0.3s;
+}
+
+.tabButton.active {
+    background: #00ff41;
+    color: #000;
+    font-weight: bold;
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.reviewsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.reviewCard {
+    background-color: #222;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 255, 65, 0.2);
+    position: relative;
+    border-left: 4px solid #00ff41;
+}
+
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.reviewUserDetails {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 3px solid #00ff41;
+}
+
+.reviewUser {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #00ff41;
+    text-transform: uppercase;
+}
+
+.reviewContent {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #b0b0b0;
+    font-family: 'Arial', sans-serif;
+}
+
+.reviewFooter {
+    font-size: 0.9rem;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+}
+
+.reviewActions {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 0.7rem;
+}
+
+.heartButton,
+.deleteButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.heartButton:hover {
+    color: #ff3333;
+}
+
+.deleteButton:hover {
+    color: #ff3333;
+}
+
+.loadingState,
+.notFoundState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    color: #e5e5e5;
+    font-family: 'Impact', sans-serif;
+}

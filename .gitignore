@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+
+# Express build (if you compile)
+dist/
+build/
+
+# Logs
+*.log
+logs
+*.csv
+
+# dotenv environment variables
+.env*
+!.env.example
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE configs
+.vscode/
+.idea/
+
+# Railway or deployment-specific
+railway.json
+*.sqlite
+
+# Optional: coverage/test output
+coverage/
+*.lcov
+
+# Optional: file uploads or runtime data
+uploads/
+temp/
+tmp/

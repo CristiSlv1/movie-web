@@ -1,0 +1,442 @@
+.status-banner {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-banner.network-offline {
+  background-color: #ff9800;
+  color: white;
+}
+
+.status-banner.server-offline {
+  background-color: #f44336;
+  color: white;
+}
+
+.status-banner button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.status-banner button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.ratingButtonHighest {
+  padding: 8px 16px;
+  background-color: blue;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.2s ease;
+}
+.ratingButtonAverage {
+  padding: 8px 16px;
+  background-color: yellow;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.2s ease;
+}
+
+.ratingButtonLowest {
+  padding: 8px 16px;
+  background-color: red;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.2s ease;
+}
+.ratingButton:hover {
+  background-color: #e0e0e0;
+}
+
+/* You can keep your existing .statsContainer styles or adjust as needed */
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+
+.menuButton {
+  position: absolute;
+  top: 10vh;
+  left: 3vw;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pressed {
+  background-color: #f3f4f6; /* Light gray background */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.buttonLabel {
+  margin-top: 4px;
+}
+
+.navButtons {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  gap: 10px;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.genreButton {
+  display: flex;
+  position: relative;
+  top: 21vh;
+  left: 15vw;
+  flex-direction: row;
+}
+
+.genreButtons {
+  display: flex;
+  top: 30vh;
+  left: 15vw;
+  position: absolute;
+  gap: 10px;
+}
+
+.filterContainer {
+  position: absolute;
+  top: 23vh;
+  right: 2vw;
+  gap: 10px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 200px;
+  margin-top: 5px;
+  z-index: 100;
+}
+
+.dropdownMenu button {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownMenu button:hover {
+  background-color: #f3f4f6;
+}
+
+.moviesLabel {
+  position: absolute;
+  top: 20vh;
+  left: 15vw;
+  font-size: 2.5vw;
+}
+/* Container for the movie grid and pagination */
+.movieGridContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Pagination Controls */
+.paginationControls {
+  position: absolute;
+  top: 30vh;
+  right: 2vw;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.paginationControls span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.pageSizeDropdown {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.loading-spinner {
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.movieGrid {
+  position: absolute;
+  top: 40vh;
+  left: 15vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 5vw;
+  max-width: 80vw;;
+}
+
+.movieCard {
+  background-color: #fff;
+  width: 200px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  height: auto;
+  gap: 3rem;
+}
+
+.movieTitle {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.movieDescription {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.movieImage {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/*--------------------------Add a movie----------------------------*/
+
+/* Add Movie Button */
+.addMovieButton {
+  position: absolute;
+  top: 5vh;
+  right: 50%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modalContent div {
+  margin-bottom: 15px;
+}
+
+.modalContent label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modalContent input,
+.modalContent textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modalContent textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.modalContent button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modalContent button:hover {
+  background-color: #0056b3;
+}
+
+/* Statistics container styling */
+.statsContainer {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  top: 20vh;
+  right: 8vw;
+}
+
+/* Base style for each statistics cell */
+.statCell {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Highlight for highest rating */
+.high {
+  background-color: #3498db; /* Blue */
+}
+
+/* Highlight for average rating */
+.average {
+  background-color: #f1c40f; /* Yellow */
+}
+
+/* Highlight for lowest rating */
+.low {
+  background-color: #e74c3c; /* Red */
+}
+
+/* Pie Chart Container */
+.pieChartContainer {
+  position: absolute;
+  top: 6vh; /* Adjust as needed */
+  left: 10vw;
+  width: 300px;
+  height: 230px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Movie Detail Page Container */
+.movieDetailContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Movie Header (Image + Info) */
+.movieDetailHeader {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.movieDetailImage {
+  border-radius: 8px;
+}
+
+.movieDetailInfo {
+  flex: 1;
+}
+
+.movieDetailTitle {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.movieDetailDescription {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.movieDetailRating, .movieDetailGenre {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.movieDetailButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Tabs */
+.movieDetailTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Reviews Section */
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reviewCard {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.reviewUsername {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.reviewRating {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.reviewComment {
+  font-size: 0.9rem;
+  color: #333;
+}
