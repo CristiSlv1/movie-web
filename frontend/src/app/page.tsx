@@ -193,8 +193,11 @@ export default function Home() {
     useEffect(() => {
         let ws: WebSocket;
         const connectWebSocket = () => {
-            ws = new WebSocket('ws://localhost:3001');
+            const WS_URL =
+            process.env.NEXT_PUBLIC_BACKEND_WS_URL ||
+            (typeof window !== "undefined" && window.location.origin.replace(/^http/, "ws"));
 
+            const ws = new WebSocket(`${WS_URL}`);
             ws.onopen = () => {
                 console.log('WebSocket connected');
             };
