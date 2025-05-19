@@ -20,7 +20,7 @@ import { User } from './entities/User';
 export const monitoredUsers = new Set<number>();
 
 const app = express();
-const PORT = 3001;
+const PORT = parseInt(process.env.PORT || "8080", 10);
 
 app.use(express.json());
 app.use(cors({
