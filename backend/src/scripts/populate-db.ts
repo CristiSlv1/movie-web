@@ -8,7 +8,7 @@ import { faker } from '@faker-js/faker';
 import { User } from '../entities/User';
 
 export async function populateDatabase() {
-    await AppDataSource.initialize();
+    // await AppDataSource.initialize();
     
     // Get repositories
     const genreRepo = AppDataSource.getRepository(Genre);
