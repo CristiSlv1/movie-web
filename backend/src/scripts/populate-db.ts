@@ -20,12 +20,18 @@ export async function populateDatabase() {
     console.log('Creating dummy users...');
     const users = [];
     for (let i = 0; i < 10; i++) {
-        const user = userRepo.create({
-            email: `user${i + 1}@example.com`,
-            password: '$2b$10$XlWYb6L.5z7V7V7V7V7V7eXlWYb6L.5z7V7V7V7V7V7eXlWYb6L.5z7V7V7V7V7V7e',
-            role: i === 0 ? 'admin' : 'user',
-        });
-        users.push(await userRepo.save(user));
+        const email = `user${i + 1}@example.com`;
+        let user = await userRepo.findOne({ where: { email } });
+        if (!user) {
+            user = userRepo.create({
+                email,
+                password: '$2b$10$XlWYb6L.5z7V7V7V7V7V7eXlWYb6L.5z7V7V7V7V7V7eXlWYb6L.5z7V7V7V7V7V7e',
+                role: i === 0 ? 'admin' : 'user',
+            });
+            users.push(await userRepo.save(user));
+        } else {
+            users.push(user);
+        }
     }
     console.log('Created 1,000 dummy users');
 
@@ -100,4 +106,4 @@ export async function populateDatabase() {
     console.log('Database population complete.');
 }
 
-populateDatabase().catch(console.error);
+// populateDatabase().catch(console.error);
