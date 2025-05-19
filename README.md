@@ -52,7 +52,7 @@ JWT_SECRET=your_jwt_secret
 
 ### Frontend (.env)
 ```env
-VITE_API_URL=http://localhost:8080
+VITE_API_URL=http://localhost:8080 or backend-movie.up.railway.app
 ```
 
 ## Installation
@@ -94,7 +94,7 @@ cd frontend
 npm run dev
 ```
 
-3. Access the application at `http://localhost:5173`
+3. Access the application at `https://frontend-movie.up.railway.app/`
 
 ## Default Admin Account
 
