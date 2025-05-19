@@ -9,7 +9,7 @@ export default function UserProfile() {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            fetch('http://localhost:3001/api/user', {
+            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
                 .then(res => res.json())

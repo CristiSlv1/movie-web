@@ -17,8 +17,8 @@ export default function LoginPage() {
         setMessage('');
         const url = isRegister ? '/api/register' : '/api/login';
         try {
-            console.log(`Fetching: http://localhost:3001${url}`);
-            const response = await fetch(`http://localhost:3001${url}`, {
+            console.log(`Fetching: ${process.env.NEXT_PUBLIC_BACKEND_URL}${url}`);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}${url}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password, role: isRegister ? role : undefined }),

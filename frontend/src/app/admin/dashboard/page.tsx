@@ -15,13 +15,13 @@ export default function AdminDashboard() {
             return;
         }
 
-        fetch('http://localhost:3001/api/user', {
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then(res => res.json())
             .then(data => {
                 if (data.success && data.role === 'admin') {
-                    fetch('http://localhost:3001/api/monitored-users', {
+                    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/monitored-users`, {
                         headers: { Authorization: `Bearer ${token}` },
                     })
                         .then(res => res.json())
