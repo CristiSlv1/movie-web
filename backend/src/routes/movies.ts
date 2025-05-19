@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
         const limitNum = parseInt(limit as string);
         const skip = (pageNum - 1) * limitNum;
 
-        let movies: any[];
+        let movies: any[] = [];
         let total: number;
 
         if (genre || sort) {
@@ -48,7 +48,12 @@ router.get('/', async (req, res) => {
             movies = movies.slice(skip, skip + limitNum);
         }
 
-        await LoggingService.logAction(decoded.id, 'READ', 'movie', undefined);
+        for (const movie of movies) {
+            if (movie.id) {
+                await LoggingService.logAction(decoded.id, 'READ', 'movie', movie.id);
+            }
+        }
+
         res.json({
             data: movies,
             total,
@@ -59,6 +64,7 @@ router.get('/', async (req, res) => {
         res.status(500).json({ error: (error as Error).message || 'Failed to fetch movies' });
     }
 });
+
 
 router.get('/:id', async (req, res) => {
     try {
