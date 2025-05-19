@@ -3,6 +3,7 @@ import { Movie } from "./entities/Movie";
 import { Review } from "./entities/Review";
 import { User } from "./entities/User";
 import { Log } from "./entities/Log";
+import { Genre } from "./entities/Genre";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -10,5 +11,5 @@ export const AppDataSource = new DataSource({
     ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
     synchronize: true,
     logging: false,
-    entities: [Movie, Review, User, Log],
+    entities: [Movie, Review, User, Log, Genre],
 });
