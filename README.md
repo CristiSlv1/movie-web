@@ -7,7 +7,7 @@ A full-stack web application for managing and reviewing movies, built with moder
 - 🎬 Movie browsing and searching
 - ⭐ Movie ratings and reviews
 - 👥 User authentication and authorization
-- 🎭 Genre-based filtering
+- 🎭 Genre-based filtering and rating based sorting
 - 📊 Admin dashboard with statistics
 - 🔒 Secure authentication with JWT
 - 📝 User reviews and comments
